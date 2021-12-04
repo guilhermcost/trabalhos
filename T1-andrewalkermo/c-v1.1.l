@@ -1,13 +1,20 @@
-/* 
-* Autora: Daniele Valverde
-*/
-
 %option noyywrap yylineno
-%{ 
+
+%{
+
 #include "c-v1.1.tab.h"
+
 %}
 
+id                         [A-Za-z]([A-Za-z]|[0-9])*
+numbers                    [0-9]+
+inlinecomment              \/\/.*
+blank                      [ \t\n]+
+
 %%
+
+{inlinecomment}             { /* no action */ }
+{blank}                     { /* no action */ }
 
 else                        { return KEY; }
 if                          { return KEY; }
@@ -18,16 +25,14 @@ while                       { return KEY; }
 const                       { return KEY; }
 for                         { return KEY; }
 
-[0-9]+                      { return NUM; }
-[A-Za-z]([A-Za-z]|[0-9])*   { return ID; }
+{id}                        { return ID; }
+{numbers}                   { return NUM; }
+
 ("+"|"-"|"*"|"/")           { return SYM; }
 ("="|"<"|">")               { return SYM; }
 ("<="|">="|"=="|"!=")       { return SYM; }
 (";"|",")                   { return SYM; }
 ("("|")"|"["|"]"|"{"|"}")   { return SYM; }
-
-[ \t\n]                     { /* no action */ }
-"//".*                      { /* no action */ }
 
 .                           { return ERROR; }
 
@@ -57,3 +62,4 @@ int main(int argc, char **argv) {
         }
     }
 }
+
