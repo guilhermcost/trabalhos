@@ -14,12 +14,12 @@ a partir do código da versão C-v1.0 (2020).
 
 ## Parte II: Análise Sintática
 
-Nesta parte do projeto, você irá implementar um analisador sintático para a [linguagem C-](../../language/README.md) (v2.0) que construirá uma árvore sintática abstrata (AST - Abstract Syntax Tree) para programas C- corretos.
+Nesta parte do projeto, você irá implementar um analisador sintático para a linguagem C- v1.1 que construirá uma árvore sintática abstrata (AST - Abstract Syntax Tree) para programas C- v1.1 corretos.
 O Trabalho Prático 2 (TP2) deve incluir o analisador sintático, construído com a ferramenta bison, funções auxiliares para a construção da AST durante o processo de análise, uma função de _prettyprint_ para gerar uma representação externa para AST e um programa principal (detalhes a seguir).
 
 <img src="./ast-parsetree.png" width="400">
 
-O analisador sintático gerado pelo Bison, _yyparse()_, deve receber uma sequência de _tokens_ gerados pelo analisador léxico gerado pelo Flex, _yylex()_, e determinar se um programa C- v2.0 segue ou não a especificação definida por sua gramática.
+O analisador sintático gerado pelo Bison, _yyparse()_, deve receber uma sequência de _tokens_ gerados pelo analisador léxico gerado pelo Flex, _yylex()_, e determinar se um programa C- v1.1 segue ou não a especificação definida por sua gramática.
 Em caso de sucesso, o analisador sintático deve gerar uma AST para o programa de entrada analisado e disponibilizar uma referência para a raiz da AST. Em caso de erro sintático detectado, apenas uma mensagem de erro deverá ser reportada e a análise sintática deve ser interrompida.
 
 Funções auxiliares para a criação e manipulação da AST e 
@@ -28,13 +28,13 @@ para a geração de uma representação usando a notação de _labelled bracketi
 
 Antes de iniciar a sua implementação, recomendamos como leitura complementar os capítulos 5 e 6
 do livro "Introduction to Compilers and Language Design" de Douglas Thain. 
-Apesar da sintaxe de C- v2.0 ser um pouco diferente da usada no livro acima, os exemplos de código e o material são úteis. 
+Apesar da sintaxe de C- 1.1 ser um pouco diferente da usada no livro acima, os exemplos de código e o material são úteis. 
 Outra consulta interessante é uma [especificação yacc para ANSI C](https://www.lysator.liu.se/c/ANSI-C-grammar-y.html) 
 feita no século passado (década de 80). 
   
-O analisador sintático para C- deverá ser desenvolvido com Bison, com base na 
-especificação sintática de C- (v2.0) 
-e integrado com o analisador léxico para C- v2.0 desenvolvido com Flex.
+O analisador sintático para C- v1.1 deverá ser desenvolvido com Bison, com base na 
+especificação sintática inicial disponibilizada
+e integrado com o analisador léxico para C- v1.1 desenvolvido com Flex.
 + Material de referência: Introducing Bison.
 
 ### Notação para a Árvore Sintática Abstrata (Abstract Syntax Tree - AST)
@@ -71,7 +71,7 @@ Assim, a AST para a expressão ``` 2 * 7 + 3```
 deve ser representada como ```[+ [* [2] [7]] [3]]``` na notação de _labelled bracketing_.
 
 
-### Listas de nós que podem ser mostrados na AST (ainda v1.0) / v2.0 em andamento.
+### Listas de nós que podem ser mostrados na AST - v1.1
 
 Tipos de nós que podem aparecem em uma AST e seus nomes correspondentes, 
 que deverão ser produzidos pelo seu analisador sintático:  
@@ -167,14 +167,10 @@ que deverão ser produzidos pelo seu analisador sintático:
       * [OP ... ]              ---> recursivamente outra expressão binária
 
 
-### Novos Tipos de Nós (v2.0)
-
-TBD (exercício no Classroom da disciplina).
+### Novos Tipos de Nós em C- v1.1
 
 * ```[const-declaration  ... ]```
 * comando for
-
-e outras definições/ adaptações para lidar com os novos elementos introduzidos na versão de C-v1.1.
 
 ### Bison e Flex
 
@@ -311,11 +307,8 @@ Importante: Caracteres de espacejamento serão ignorados na correção automáti
 ```
 int a;
 int const min = 0;
-enum rgb {red,green,blue};
-enum rgb color;
 void main(void) {
    a = min;
-   color = red;
 }
 ```
 
@@ -325,21 +318,12 @@ void main(void) {
 [program
   [var-declaration [int][a]]
   [const-declaration [int][min][0]]
-  [enum-type-declaration [rgb]
-    [enum_consts 
-      [enum-const [red]]
-      [enum-const [green]]
-      [enum-const [blue]]
-    ]
-  ]
-  [enum-var-declaration [rgb][color]]
   [fun-declaration 
     [void]
     [main]
     [params]
     [compound-stmt 
        [= [var [a]] [const [min]]]
-       [= [var [color]] [const [red]]
      ]
    ]
 ]
