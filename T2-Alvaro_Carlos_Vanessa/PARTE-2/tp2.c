@@ -52,25 +52,16 @@ void prettyprint_params(struct param_list *pl){
     }
 }
 
-void prettyprint_enum2(struct param_list *pl){
-    struct param_list *p = pl;
-    while (p) {
-        printf("\n");
-        printf("[enum-const ");
-        printf("[%s]",p->name);
-        printf("]");
-        p = p->next;
-    }
-}
-
 void prettyprint_var(struct decl *var) {
     if(var->expr==0){
     	printf("\n[var-declaration ");
     	prettyprint_type(var->type);
     	prettyprint_name(var->name);
     }else if(var->expr!=0){
+        struct type *tipo = var->type;
     	printf("\n[const-declaration ");
     	prettyprint_type(var->type);
+        prettyprint_type(tipo->subtype);
     	prettyprint_name(var->name);
     	prettyprint_expr(var->expr);
     }
@@ -101,23 +92,6 @@ void prettyprint_func(struct decl *func) {
     printf("]");
 }
 
-void prettyprint_enum(struct decl *enu) {
-    if(enu->expr==0){
-        printf("\n[enum-type-declaration ");
-        prettyprint_name(enu->name);
-        printf("\n[enum_consts");
-        struct type *e = enu->type;
-        if (e->params)
-            prettyprint_enum2(e->params);
-        printf("\n]");
-        printf("\n]");
-    }else{
-        printf("\n[enum-var-declaration ");
-        prettyprint_name(enu->name);
-        prettyprint_expr(enu->expr);
-        printf("]");
-    }
-}
 
 void prettyprint_decl(struct decl *decl) {
   while (decl) {
@@ -139,14 +113,12 @@ void prettyprint_decl(struct decl *decl) {
             prettyprint_func(decl);
             break;
         }
-        case TYPE_ENUM: {
-            prettyprint_enum(decl);
-            break;
-        }
+        
         case TYPE_CONST: {
-            prettyprint_enum(decl);
+            prettyprint_var(decl);
             break;
         }
+
         default: {
             printf("tipo desconhecido\n");
             break;
@@ -176,8 +148,17 @@ void prettyprint_stmt(struct stmt *s) {
             break;
         }
         case STMT_WHILE: {
-            printf("\n[iteration-stmt ");
+            printf("\n[iteration-while-stmt ");
             prettyprint_expr(s->expr);
+            prettyprint_stmt(s->body);
+            printf("]\n");
+            break;
+        }
+        case STMT_FOR: {
+            printf("\n[iteration-for-stmt ");
+            prettyprint_expr(s->init_expr);
+            prettyprint_expr(s->expr);
+            prettyprint_expr(s->next_expr);
             prettyprint_stmt(s->body);
             printf("]\n");
             break;
