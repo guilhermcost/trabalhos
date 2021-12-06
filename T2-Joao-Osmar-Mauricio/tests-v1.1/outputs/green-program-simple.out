@@ -1,0 +1,18 @@
+(1,KEYVOID,"void")
+(1,ID,"main")
+(1,OPARENT,"(")
+(1,KEYVOID,"void")
+(1,CPARENT,")")
+(2,OKEY,"{")
+(3,KEYINT,"int")
+(3,ID,"a")
+(3,SEMICOLON,";")
+(4,ID,"a")
+(4,EQUAL,"=")
+(4,NUM,"4")
+(4,PLUS,"+")
+(4,NUM,"5")
+(4,SEMICOLON,";")
+(5,CKEY,"}")
+
+Sem erros sintáticos.

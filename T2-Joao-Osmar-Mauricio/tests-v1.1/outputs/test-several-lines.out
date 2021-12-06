@@ -1,0 +1,12 @@
+(3,KEYVOID,"void")
+(3,ID,"main")
+(3,OPARENT,"(")
+(3,KEYVOID,"void")
+(3,CPARENT,")")
+(4,OKEY,"{")
+(5,KEYINT,"int")
+(5,ID,"aTab")
+(5,SEMICOLON,";")
+(6,CKEY,"}")
+
+Sem erros sintáticos.

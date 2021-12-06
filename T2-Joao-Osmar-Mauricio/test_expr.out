@@ -1,0 +1,12 @@
+(2,KEYINT,"int")
+(2,ID,"a")
+(2,SEMICOLON,";")
+(3,KEYINT,"int")
+(3,ID,"abc3")
+(3,SEMICOLON,";")
+(4,KEYVOID,"void")
+(4,ID,"c")
+(4,SEMICOLON,";")
+(6,ID,"a")
+
+Erro sintático: "syntax error" em 'a' próximo da linha 6.

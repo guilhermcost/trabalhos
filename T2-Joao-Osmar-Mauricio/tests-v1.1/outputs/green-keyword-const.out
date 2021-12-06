@@ -1,0 +1,11 @@
+(1,KEYINT,"int")
+(1,ID,"main")
+(1,OPARENT,"(")
+(1,KEYVOID,"void")
+(1,CPARENT,")")
+(1,OKEY,"{")
+(2,KEYINT,"int")
+(2,ID,"CONST")
+(2,ID,"i")
+
+Erro sintático: "syntax error" em 'i' próximo da linha 2.

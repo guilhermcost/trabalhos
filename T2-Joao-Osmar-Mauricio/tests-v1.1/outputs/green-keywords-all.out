@@ -1,0 +1,4 @@
+(1,KEYCONST,"const")
+(2,KEYIF,"if")
+
+Erro sintático: "syntax error" em 'if' próximo da linha 2.

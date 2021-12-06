@@ -1,0 +1,10 @@
+(2,KEYVOID,"void")
+(2,ID,"main")
+(2,OPARENT,"(")
+(2,KEYVOID,"void")
+(2,CPARENT,")")
+(2,OKEY,"{")
+(3,NUM,"0")
+(3,NUM,"1")
+
+Erro sintático: "syntax error" em '1' próximo da linha 3.

@@ -1,0 +1,6 @@
+(3,KEYINT,"int")
+(3,ID,"i")
+(3,SEMICOLON,";")
+(5,MINUS,"-")
+
+Erro sintático: "syntax error" em '-' próximo da linha 5.
