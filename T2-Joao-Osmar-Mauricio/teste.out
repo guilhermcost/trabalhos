@@ -1,11 +1,5 @@
-(2,KEYINT,"int")
-(2,ID,"a")
-(2,SEMICOLON,";")
-(3,KEYINT,"int")
-(3,ID,"abc3")
-(3,SEMICOLON,";")
-(4,KEYVOID,"void")
-(4,ID,"c")
-(4,SEMICOLON,";")
-
-Sem erros sintáticos.
+[program 
+[var-declaration [int][(null)]]
+  [var-declaration [int][(null)]]
+[void]
+]

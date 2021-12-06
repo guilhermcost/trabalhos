@@ -8,7 +8,7 @@ flex c-v1.1.l
 
 echo "gerando o compilador cm para C-v1.1" 
 echo
-cc -o cm lex.yy.c c-v1.1.tab.c
+cc -o cm lex.yy.c c-v1.1.tab.c ast.c tp2.c -ll
 
 echo "compilador cm criado." 
 echo
