@@ -16,7 +16,7 @@ while                       { return KEY; }
 const                       { return KEY; }
 for                         { return KEY; }
 
-[A-Za-z]([A-Za-z]|[0-9])*   { return ID; }
+[A-Za-z]([A-Za-z]|[0-9]|_)* { return ID; }
 
 [0-9]+                      { return NUM; }
 
