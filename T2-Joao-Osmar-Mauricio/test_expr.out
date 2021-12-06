@@ -1,12 +1,39 @@
-(2,KEYINT,"int")
-(2,ID,"a")
-(2,SEMICOLON,";")
-(3,KEYINT,"int")
-(3,ID,"abc3")
-(3,SEMICOLON,";")
-(4,KEYVOID,"void")
-(4,ID,"c")
-(4,SEMICOLON,";")
-(6,ID,"a")
+[program 
+[const-declaration [(null)][0]]
+  [var-declaration [int][(null)]]
+    [var-declaration [int][(null)]]
+      [var-declaration [int][(null)]]
+        [func-declaration 
+[int]
+[(null)]
+[params
+]
+        [compound-stmt 
+        [= [var [(null)]][0]]
+          [;]
 
-Erro sintático: "syntax error" em 'a' próximo da linha 6.
+          [= [var [(null)]]
+            [+ 
+            [* [var [(null)]][var [(null)]]][var [(null)]]]]
+            [;]
+
+            [return-stmt 
+            [= [var [(null)]]
+              [/ [var [(null)]]
+                [- [var [(null)]][var [(null)]]]]]]
+
+              [for-stmt 
+              [= [var [(null)]][0]]
+                [< [var [(null)]][0]]
+                  [= [var [(null)]]
+                    [+ [var [(null)]][0]]]
+                    [compound-stmt 
+                    [selection-stmt 
+                    [+ [var [(null)]][0]]
+                      [== [var [(null)]][0]]
+                        [;]
+]]
+]
+]
+]
+]
