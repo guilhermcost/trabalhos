@@ -1,5 +1,4 @@
-/* Programa Bison*\
-
+/* empty */
 %{
 #include <stdlib.h>
 #include <stdio.h>
@@ -19,8 +18,9 @@ int yylex();
 
 %%
 
-program
-: /* empty */
-;
+program:
+
+/* empty */
+
 
 %%
