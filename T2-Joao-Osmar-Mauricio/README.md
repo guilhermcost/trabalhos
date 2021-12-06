@@ -17,6 +17,7 @@ Foram eles: `green-keyword-for.in`, `green-program-gcd.in`, `green-program-selec
 
 A equipe tomou a liberdade de adicionar regras sintáticas para o `for` em `iterationStmt`, e `const` em `constDeclaration`.
 
+
 ## Parte 2
 
 A implementação da AST foi feita principalmente a partir do arquivo sintático `c-v1.1.y`, onde foram adicionadas as ações semânticas a cada uma das regras sintáticas da gramática.
@@ -31,6 +32,7 @@ Ao rodar o arquivo `teste.c`, por exemplo, obtemos a seguinte saída:
 [void]
 ]
 ```
+
 
 ## Execução
 

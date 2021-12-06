@@ -1,0 +1,46 @@
+%option noyywrap yylineno
+
+%{
+#include "c-v1.1.tab.h"
+%}
+
+%%
+
+"//".*                { }
+
+const                 { return CONST; }
+return                { return RETURN; } 
+int                   { return INT; }
+void                  { return VOID; }
+if                    { return IF; }
+else                  { return ELSE; }
+for                   { return FOR; }
+while                 { return WHILE; }
+
+[a-zA-Z][a-zA-Z0-9_]* { return ID; }
+[0-9]+                { yylval = atoi(yytext); return NUM; }
+
+"+"                   { return PLUS; }    
+"-"                   { return MINUS; }  
+"*"                   { return MUL; }      
+"/"                   { return DIV; } 
+"="                   { return EQUAL; }  
+"=="                  { return COMPARE; } 
+">"                   { return GT; }  
+">="                  { return GTE; } 
+"<"                   { return LT; } 
+"<="                  { return LTE; } 
+"!="                  { return DIF; }  
+","                   { return COMMA; }        
+";"                   { return SEMICOLON; }  
+"("                   { return LPAREN; }    
+")"                   { return RPAREN; }    
+"{"                   { return LBRACE; }    
+"}"                   { return RBRACE; }    
+"["                   { return LBRAKET; }    
+"]"                   { return RBRAKET; }    
+   
+[ \n\t\r]+            { }
+.                     { }
+
+%%

@@ -1,0 +1,4 @@
+// Testa caracter invalido .
+void main(void) {
+    1 r.;
+}
